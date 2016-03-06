@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="websocket.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+
+        <div id="wrapper">
+            <h1>Java WebSocket Chat</h1>
+            <p>Welcome to the Java WebSocket Chat.</p>
+            <br/>
+            <div id="joinChat">
+            	<input type="text" id="nickName" placeholder="Enter Name"/>
+                <div class="button"> <a href="#" OnClick="joinChat()">Join Chat</a> </div>
+            </div>
+            <br />
+            <div id="content">
+            <div id="chatRoom"></div>
+            <br/>
+			<div id="message">
+ 				<textarea id="messageText" rows=4 cols=70 placeholder="Enter Message"></textarea>
+ 				<br/><br/><br/>
+ 				<div id = "sendMessage" class="button"> <a href="#" OnClick="sendMessage()">Send Message</a> </div>
+ 				<div id = "logout" class="button"> <a href="#" OnClick="logout()">Logout</a> </div>
+			</div>
+			</div>
+			<div id="error"></div>
+        </div>
+
+    </body>
+</html>

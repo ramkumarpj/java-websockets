@@ -1,0 +1,28 @@
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+war {
+    archiveName = "WebSocket.war"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.7.1'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.7.1'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.7.1'
+    compile 'javax:javaee-api:7.0'
+
+    testCompile 'junit:junit:4.12'
+}
+
+task docker(type: Copy) {
+    from war.archivePath 
+    into "${buildDir}/../../docker/tomcat/war"
+    println "war file copied to ${buildDir}/../docker/tomcat/lib"
+}
+
+docker.dependsOn war
