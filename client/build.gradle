@@ -1,0 +1,18 @@
+
+apply plugin: 'war'
+
+war {
+    archiveName = "WebSocketClient.war"
+}
+
+repositories {
+    mavenCentral()
+}
+
+task docker(type: Copy) {
+    into "${buildDir}/../../docker/nginx/explodedWar"
+    with war
+}
+
+docker.dependsOn war
+

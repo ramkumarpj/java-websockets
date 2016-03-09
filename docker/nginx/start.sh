@@ -4,7 +4,7 @@ basedir=`pwd`
 
 host=`docker-machine ip default`
 
-webapp_dir=${basedir}/../../client/src/main/webapp
+webapp_dir=${basedir}/explodedWar
 
 echo "Web App direcory --> ${webapp_dir}"
 
@@ -12,7 +12,7 @@ docker stop nginx
 
 docker rm nginx
 
-docker run --name nginx -p 80:80 -v ${webapp_dir}:/usr/share/nginx/html -d nginx
+docker run --name nginx -p 80:80 -d nginx
 
 echo "NGINX running at - http://${host}:80/"
 

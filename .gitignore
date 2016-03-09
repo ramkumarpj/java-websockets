@@ -1,3 +1,7 @@
+client/.gradle/
+client/build/*
 server/.gradle/
 server/build/*
+docker/nginx/explodedWar
 docker/tomcat/war
+
