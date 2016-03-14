@@ -1,5 +1,10 @@
 
+import org.apache.tools.ant.filters.*
+
 apply plugin: 'war'
+apply plugin: 'java'
+
+def propertyFile=project.properties['env'] ?: "dev.properties"
 
 war {
     archiveName = "WebSocketClient.war"
@@ -12,6 +17,18 @@ repositories {
 task docker(type: Copy) {
     into "${buildDir}/../../docker/nginx/explodedWar"
     with war
+
+    def properties = new Properties()
+      	file(propertyFile).withInputStream {
+      	properties.load(it)
+    }
+
+    filesMatching ('**/config.js') {
+    filter ReplaceTokens, tokens: properties
+}
+}
+
+task filterResources {
 }
 
 docker.dependsOn war

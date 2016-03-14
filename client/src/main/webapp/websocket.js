@@ -1,6 +1,6 @@
 window.onload = init;
 window.onbeforeunload = cleanUp;
-var webSocketEndPoint = "ws://192.168.99.100:8080/WebSocket/chat";
+var webSocketEndPoint = websocketUrl+"/WebSocket/chat";
 var socket = createWebSocket();
 
 var isLoggedOn = false;
