@@ -4,7 +4,7 @@ import org.apache.tools.ant.filters.*
 apply plugin: 'war'
 apply plugin: 'java'
 
-def propertyFile=project.properties['env'] ?: "dev.properties"
+def propertyFile=project.hasProperty('env') ? project.getProperty('env') : "dev.properties"
 
 war {
     archiveName = "WebSocketClient.war"
