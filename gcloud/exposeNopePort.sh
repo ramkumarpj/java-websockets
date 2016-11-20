@@ -13,8 +13,4 @@ fi
 
 echo "Service set to ${SERVICE}"
 
-kubectl get services ${SERVICE}
-
-if [ ! -z "${INGRESS_SERVICE_NAME}" ]; then
-	kubectl get ingress ${INGRESS_SERVICE_NAME} --watch
-fi 
+kubectl expose rc ${SERVICE}  --type="NodePort"

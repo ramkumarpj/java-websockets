@@ -13,6 +13,10 @@ fi
 
 echo "Service set to ${SERVICE}"
 
+if [ ! -z "${INGRESS_YAML}" ]; then
+	kubectl delete -f ${INGRESS_YAML}
+fi
+
 kubectl delete services ${SERVICE} 
 
 kubectl delete rc ${SERVICE}
